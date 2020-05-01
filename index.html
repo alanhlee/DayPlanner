@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Work Day Scheduler</title>
+</head>
+
+<body>
+  <header class="jumbotron">
+
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+  <div class="container">
+    <div class='time-block row hour' id="8" data-value='8am'>8am</div>
+    <div class='time-block row hour' id="9" data-value='9am'>9am</div>
+    <div class='time-block row hour' id="10" data-value='10am'>10am</div>
+    <div class='time-block row hour' id="11" data-value='11am'>11am</div>
+    <div class='time-block row hour' id="12" data-value='12pm'>12pm</div>
+    <div class='time-block row hour' id="1" data-value='1pm'>1pm</div>
+    <div class='time-block row hour' id="2" data-value='2pm'>2pm</div>
+    <div class='time-block row hour' id="3" data-value='3pm'>3pm</div>
+    <div class='time-block row hour' id="4" data-value='4pm'>4pm</div>
+    <div class='time-block row hour' id="5" data-value='5pm'>5pm</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script>
+    document.getElementById('currentDay').innerText = moment().format('dddd');
+    // console.log(moment({ hour:8, minute:0}).isAfter(moment())) to create your own moment
+
+    // check if moment is before after or present then add class to div
+    let eightAm = moment(document.getElementById('8').dataset.value, 'h:mm A')
+    if (moment().hour() === 8) {
+      document.getElementById('8').classList.add('present')
+    }
+    else if (moment().isBefore(eightAm)) {
+      document.getElementById('8').classList.add('future')
+    }
+    else if (moment().isAfter(eightAm)) {
+      document.getElementById('8').classList.add('past')
+    }
+
+    let nineAm = moment(document.getElementById('9').dataset.value, 'h:mm A')
+    if (moment().hour() === 9) {
+      document.getElementById('9').classList.add('present')
+    }
+    else if (moment().isBefore(nineAm)) {
+      document.getElementById('9').classList.add('future')
+    }
+    else if (moment().isAfter(nineAm)) {
+      document.getElementById('9').classList.add('past')
+    }
+
+    let tenAm = moment(document.getElementById('10').dataset.value, 'h:mm A')
+    if (moment().hour() === 10) {
+      document.getElementById('10').classList.add('present')
+    }
+    else if (moment().isBefore(tenAm)) {
+      document.getElementById('10').classList.add('future')
+    }
+    else if (moment().isAfter(tenAm)) {
+      document.getElementById('10').classList.add('past')
+    }
+    let elevenAm = moment(document.getElementById('11').dataset.value, 'h:mm A')
+    if (moment().hour() === 11) {
+      document.getElementById('11').classList.add('present')
+    }
+    else if (moment().isBefore(elevenAm)) {
+      document.getElementById('11').classList.add('future')
+    }
+    else if (moment().isAfter(elevenAm)) {
+      document.getElementById('11').classList.add('past')
+    }
+
+    let twelvePm = moment(document.getElementById('12').dataset.value, 'h:mm A')
+    if (moment().hour() === 12) {
+      document.getElementById('12').classList.add('present')
+    }
+    else if (moment().isBefore(twelvePm)) {
+      document.getElementById('12').classList.add('future')
+    }
+    else if (moment().isAfter(twelvePm)) {
+      document.getElementById('12').classList.add('past')
+    }
+
+    let onePm = moment(document.getElementById('1').dataset.value, 'h:mm A')
+    if (moment().hour() === 1) {
+      document.getElementById('1').classList.add('present')
+    }
+    else if (moment().isBefore(onePm)) {
+      document.getElementById('1').classList.add('future')
+    }
+    else if (moment().isAfter(onePm)) {
+      document.getElementById('1').classList.add('past')
+    }
+
+    let twoPm = moment(document.getElementById('2').dataset.value, 'h:mm A')
+    if (moment().hour() === 2) {
+      document.getElementById('2').classList.add('present')
+    }
+    else if (moment().isBefore(twoPm)) {
+      document.getElementById('2').classList.add('future')
+    }
+    else if (moment().isAfter(twoPm)) {
+      document.getElementById('2').classList.add('past')
+    }
+
+    let threePm = moment(document.getElementById('3').dataset.value, 'h:mm A')
+    if (moment().hour() === 3) {
+      document.getElementById('3').classList.add('present')
+    }
+    else if (moment().isBefore(threePm)) {
+      document.getElementById('3').classList.add('future')
+    }
+    else if (moment().isAfter(threePm)) {
+      document.getElementById('3').classList.add('past')
+    }
+
+    let fourPm = moment(document.getElementById('4').dataset.value, 'h:mm A')
+    if (moment().hour() === 4) {
+      document.getElementById('4').classList.add('present')
+    }
+    else if (moment().isBefore(fourPm)) {
+      document.getElementById('4').classList.add('future')
+    }
+    else if (moment().isAfter(fourPm)) {
+      document.getElementById('4').classList.add('past')
+    }
+
+    let fivePm = moment(document.getElementById('5').dataset.value, 'h:mm A')
+    if (moment().hour() === 5) {
+      document.getElementById('5').classList.add('present')
+    }
+    else if (moment().isBefore(fivePm)) {
+      document.getElementById('5').classList.add('future')
+    }
+    else if (moment().isAfter(fivePm)) {
+      document.getElementById('5').classList.add('past')
+    }
+
+
+    document.getElementById('8').addEventListener('click', () => {
+      
+    })
+
+  </script>
+
+</body>
+
+</html>
