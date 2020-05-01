@@ -11,6 +11,11 @@ textarea{
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  flex-basis: 96%;
+}
+
+#boxForRows {
+  display: flex
 }
 
 .jumbotron {
@@ -28,6 +33,7 @@ textarea{
 .time-block{
   text-align: center;
   border-radius: 15px;
+  flex-basis: 2%;
 }
 
 .row {
@@ -63,9 +69,22 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  flex-basis: 2%;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.container {
+  flex-direction: row;
+  align-items: baseline;
+  display: flex;
+}
+
+.item {
+  height: 60px;
+  padding: 20px;
+  margin: 1px;
 }

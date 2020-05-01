@@ -20,23 +20,63 @@
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
   </header>
-  <div class="container">
-    <div class='time-block row hour' id="8" data-value='8am'>8am</div>
-    <div class='time-block row hour' id="9" data-value='9am'>9am</div>
-    <div class='time-block row hour' id="10" data-value='10am'>10am</div>
-    <div class='time-block row hour' id="11" data-value='11am'>11am</div>
-    <div class='time-block row hour' id="12" data-value='12pm'>12pm</div>
-    <div class='time-block row hour' id="1" data-value='1pm'>1pm</div>
-    <div class='time-block row hour' id="2" data-value='2pm'>2pm</div>
-    <div class='time-block row hour' id="3" data-value='3pm'>3pm</div>
-    <div class='time-block row hour' id="4" data-value='4pm'>4pm</div>
-    <div class='time-block row hour' id="5" data-value='5pm'>5pm</div>
-  </div>
+  <div class="containerWrap">
+    <div class="container">
+      <div class='time-block row hour item' id="8" data-value='8am'>8am</div>
+      <textarea class='item textarea' id='ta8'></textarea>
+      <div class="item saveBtn" id='btn8'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="9" data-value='9am'>9am</div>
+      <textarea class='item textarea' id='ta9'></textarea>
+      <div class="item saveBtn" id='btn9'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="10" data-value='10am'>10am</div>
+      <textarea class='item textarea' id='ta10'></textarea>
+      <div class="item saveBtn" id='btn10'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="11" data-value='11am'>11am</div>
+      <textarea class='item textarea' id='ta11'></textarea>
+      <div class="item saveBtn" id='btn11'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="12" data-value='12am'>12am</div>
+      <textarea class='item textarea' id='ta12'></textarea>
+      <div class="item saveBtn" id='btn12'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="1" data-value='1pm'>1pm</div>
+      <textarea class='item textarea' id='ta1'></textarea>
+      <div class="item saveBtn" id='btn1'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="2" data-value='2pm'>2pm</div>
+      <textarea class='item textarea' id='ta2'></textarea>
+      <div class="item saveBtn" id='btn2'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="3" data-value='3pm'>3pm</div>
+      <textarea class='item textarea' id='ta3'></textarea>
+      <div class="item saveBtn" id='btn3'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="4" data-value='4pm'>4pm</div>
+      <textarea class='item textarea' id='ta4'></textarea>
+      <div class="item saveBtn" id='btn4'>Save</div>
+    </div>
+    <div class="container">
+      <div class='time-block row hour item' id="5" data-value='5pm'>5pm</div>
+      <textarea class='item textarea' id='ta5'></textarea>
+      <div class="item saveBtn" id='btn5'>Save</div>
+    </div>
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script>
     document.getElementById('currentDay').innerText = moment().format('dddd');
-    // console.log(moment({ hour:8, minute:0}).isAfter(moment())) to create your own moment
+    // console.log(moment({ hour:8, minute:0 }).isAfter(moment())) ability to set static time
 
     // check if moment is before after or present then add class to div
     let eightAm = moment(document.getElementById('8').dataset.value, 'h:mm A')
@@ -148,10 +188,52 @@
       document.getElementById('5').classList.add('past')
     }
 
+// set local storage with text area input
 
-    document.getElementById('8').addEventListener('click', () => {
-      
+    document.getElementById('btn8').addEventListener('click', () => {
+      localStorage.setItem('save8', `${document.getElementById('ta8').value}`)
     })
+    document.getElementById('btn9').addEventListener('click', () => {
+      localStorage.setItem('save9', `${document.getElementById('ta9').value}`)
+    })
+    document.getElementById('btn10').addEventListener('click', () => {
+      localStorage.setItem('save10', `${document.getElementById('ta10').value}`)
+    })
+    document.getElementById('btn11').addEventListener('click', () => {
+      localStorage.setItem('save11', `${document.getElementById('ta11').value}`)
+    })
+    document.getElementById('btn12').addEventListener('click', () => {
+      localStorage.setItem('save12', `${document.getElementById('ta12').value}`)
+    })
+    document.getElementById('btn1').addEventListener('click', () => {
+      localStorage.setItem('save1', `${document.getElementById('ta1').value}`)
+    })
+    document.getElementById('btn2').addEventListener('click', () => {
+      localStorage.setItem('save2', `${document.getElementById('ta2').value}`)
+    })
+    document.getElementById('btn3').addEventListener('click', () => {
+      localStorage.setItem('save3', `${document.getElementById('ta3').value}`)
+    })
+    document.getElementById('btn4').addEventListener('click', () => {
+      localStorage.setItem('save4', `${document.getElementById('ta4').value}`)
+    })
+    document.getElementById('btn5').addEventListener('click', () => {
+      localStorage.setItem('save5', `${document.getElementById('ta5').value}`)
+    })
+
+
+// call local storage to display what was entered from input
+    document.getElementById('ta8').innerText = localStorage.getItem('save8')
+    document.getElementById('ta9').innerText = localStorage.getItem('save9')
+    document.getElementById('ta10').innerText = localStorage.getItem('save10')
+    document.getElementById('ta11').innerText = localStorage.getItem('save11')
+    document.getElementById('ta12').innerText = localStorage.getItem('save12')
+    document.getElementById('ta1').innerText = localStorage.getItem('save1')
+    document.getElementById('ta2').innerText = localStorage.getItem('save2')
+    document.getElementById('ta3').innerText = localStorage.getItem('save3')
+    document.getElementById('ta4').innerText = localStorage.getItem('save4')
+    document.getElementById('ta5').innerText = localStorage.getItem('save5')
+
 
   </script>
 
